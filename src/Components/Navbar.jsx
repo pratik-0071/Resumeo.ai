@@ -21,8 +21,7 @@ const Navbar = () => {
           </ul>
         </details>
       </li>
-      <Link to='faq'><li><a>FAQ</a>
-      </li></Link>
+      <Link to='/faq'><li><a>FAQ</a></li></Link>
     </ul>
   </div>
   <div className="navbar-end mr-5">
