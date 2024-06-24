@@ -8,6 +8,8 @@ import Aboutus from '../src/Pages/Aboutus.jsx';
 import Login from '../src/Pages/Login.jsx';
 import Signup from '../src/Pages/Signup.jsx';
 import Dashboard from '../src/Pages/Dashboard.jsx';
+import Manual from '../src/Pages/Manual.jsx';
+import AI from '../src/Pages/AI.jsx';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='signup' element={<Signup/>}/>
           <Route path='dashboard' element={<Dashboard/>}/>
+          <Route path='/manualbuild' element={<Manual/>}/>
+          <Route path='/AIbuild' element={<AI/>}/>
         </Routes>
       </BrowserRouter>
     </div>
