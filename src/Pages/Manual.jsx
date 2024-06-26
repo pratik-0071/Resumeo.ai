@@ -4,6 +4,10 @@ import Footer from '../Components/Footer'
 import Restem from '../restem.jpg';
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { IoShareOutline } from "react-icons/io5";
+import { BiSolidSave } from "react-icons/bi";
+import { FiEdit3 } from "react-icons/fi";
+
+
 
 
 
@@ -13,9 +17,23 @@ const Manual = () => {
     <div>
         <Navbar/>
 
-        <h2 className='text-3xl font-medium text-left p-5 mt-5'>One step closer, Let's begin !</h2>
+        <h2 className='text-3xl font-medium text-left p-4 mt-5'>One step closer, Let's begin !</h2>
 
         <div className="buttons flex justify-end mr-10">
+
+            <div className="save-btn btn flex justify-end mr-5 ">
+                <FiEdit3 />
+
+                    <p >Edit</p>
+            </div>
+
+            <div className="save-btn btn flex justify-end mr-5 ">
+                <BiSolidSave />
+
+                    <p >Save</p>
+            </div>
+
+
             <div className="download-btn btn flex justify-end mr-5">
                 <FaCloudDownloadAlt />
                 <p >Download</p>
@@ -26,17 +44,19 @@ const Manual = () => {
 
                 <p >Share</p>
             </div>
+
+            
         </div>
 
 
-        <div className="builder bg-gray-400 h-fit rounded-lg w-screen  mb-10 mt-5">
-            <div className="template flex-grow ">
-                <img src={Restem} alt="Template" className='ml-40' />
+        <div className="builder bg-gray-400 h-fit rounded-lg w-screen mt-5 ">
+            <div className="template flex-grow flex justify-center items-center p-3">
+                <img src={Restem} alt="Template" className='' />
             </div>
 
            
 
-        <div className=" flex-grow collapse collapse-arrow bg-base-200">
+        {/* <div className=" flex-grow collapse collapse-arrow bg-base-200">
             <input type="radio" name="my-accordion-2" defaultChecked />
             <div className="collapse-title text-xl font-medium">Personal Info</div>
             <div className="collapse-content">
@@ -101,7 +121,7 @@ const Manual = () => {
             <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs mt-2" />
 
             </div>
-        </div>
+        </div> */}
 
 
 

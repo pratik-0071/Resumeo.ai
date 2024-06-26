@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../Components/Navbar.jsx';
 import Footer from '../Components/Footer.jsx';
 import { Link } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import auth from '../firebase.init.js';
+
 
 const Login = () => {
+
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState(''); 
+
+    const userLogin = () => {
+       
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+            // Signed up 
+        const user = userCredential.user;
+            // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+     // ..
+    });
+}
+
+
+
   return (
-    <div>
+    <div className='h-[85vh]'>
         <Navbar/>
             <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -35,7 +59,7 @@ const Login = () => {
         </div>
 
         <div>
-            <Link to='/dashboard' type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</Link>
+            <Link onClick={userLogin} type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</Link>
         </div>
         </form>
 
