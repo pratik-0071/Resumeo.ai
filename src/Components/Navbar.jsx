@@ -1,8 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
+import app from '../firebase.init'
 
 
 const Navbar = () => {
+
+  const [login,setLogin] = useState(true);
+
+  useEffect(() => {
+    if(sessionStorage.getItem("Email")){
+      setLogin(false);
+    }else{
+      setLogin(true)
+    }
+  },[])
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("Email");
+    setLogin(true);
+    const auth = getAuth(app);
+    signOut(auth).then(() => {
+      alert("Logged Out");
+    }).catch((err) => {
+      console.error(err);
+    })
+  }
+
   return (
     <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -22,6 +46,15 @@ const Navbar = () => {
         </details> */}
       </li></Link>
       <Link to='/faq'><li><a>FAQ</a></li></Link>
+      {login ? (
+        <>
+        <Link to='/login'><li><a>Login</a></li></Link>
+        </>
+        ) : (
+        <>
+        <Link to='/login' onClick={handleLogout}>LogOut</Link>
+        </>
+        )}
     </ul>
   </div>
   <div className="navbar-end avatar placeholder mr-5">
@@ -29,8 +62,8 @@ const Navbar = () => {
       
       <span className="text-xl">PK</span>
       
+    </div>
   </div>
-</div>
 
 
   {/* <div className="navbar-end mr-5">
